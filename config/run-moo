@@ -1,0 +1,12 @@
+#!/bin/bash
+
+GUNICORN=/srv/env/bin/gunicorn
+ROOT=/srv/moo-site
+PID=/var/run/gunicorn.pid
+
+APP='moo:app'
+
+if [ -f $PID ]; then rm $PID; fi
+
+cd $ROOT
+exec $GUNICORN -c $ROOT/config/gunicorn.conf.py --pid=$PID $APP
