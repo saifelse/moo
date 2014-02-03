@@ -3,11 +3,22 @@
 body, html {
 	margin: 0;
 	padding: 0;
-	height: 100%;}
+	height: 100%;
+	background-color: #216734;}
 
-#ground {
-	background-color: #216734;
-	height: 100%;}
+h1, h2 {
+	text-transform: uppercase;
+	margin: 0;
+	font-family: 'The Girl Next Door' , cursive;}
+
+h2 {
+	font-family: 'Pathway Gothic One' , sans-serif;}
+
+h1 {
+	font-size: 16px;}
+
+#puzzle {
+	padding: 10px;}
 
 #sky {
 	background-color: #101342;
@@ -15,15 +26,11 @@ body, html {
 	font-family: Arial;
 	color: #fff;}
 
-#sky h1 {
-	text-transform: uppercase;
-	font-family: 'The Girl Next Door' , cursive;}
-
 #sky table {
 	width: 100%;
 	border-collapse: collapse;
 	font-family: 'Pathway Gothic One' , sans-serif;
-	font-size: 25px;}
+	font-size: 17px;}
 
 #sky table th {
 	text-align: left;}
@@ -37,19 +44,28 @@ body, html {
 #sky table th.lvl-answer {
 	width: 30%;}
 
+#sky table tbody tr:hover {
+	background-color: #20297f;}
+
+#sky table td, #sky table th {
+	padding-left: 5px;}
+
 #sky table tr {
-	height: 3em;
-	border-bottom: 1px solid #fff;}
+	height: 2em;
+	border-bottom: 1px solid #fff;
+	-webkit-user-select: none;
+	cursor: pointer;}
 
 #sky table tbody td:first-child {
 	text-transform: uppercase;}
 
 #sky table tbody td:nth-child(2) {
 	font-family: 'The Girl Next Door' , cursive;
-	font-size: 30px;}
+	font-size: 16px;}
 
 #sky table input {
 	border-radius: 13px;
+	border: 2px solid #fff;
 	width: 25px;
 	height: 25px;
 	outline: none;
@@ -57,5 +73,16 @@ body, html {
 	text-align: center;}
 
 #sky table input:focus {
-	background: #f8f5bb;}
+	background: #f8f5bb !important;}
+
+#sky table input.normal-key {
+	background: none;
+	color: #fff;}
+
+#sky table input.meta-key {
+	background: #fff;
+	color: #101342;}
+
+#sky table tr.solved button {
+	display: none;}
 

@@ -1,1 +1,6 @@
 *.pyc
+*.db
+moo/static/js/*.js
+moo/static/js/views/*.js
+moo/static/css/*.css
+*.DS_Store

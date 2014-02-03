@@ -1,0 +1,7 @@
+td.lvl= "Level " + levelNumber
+td.lvl-name= name
+td.lvl-answer
+  form.submit-form(method='POST',action='/')
+    for letter, i in answer
+      input(type="text", maxlength="1", class=(i == metakey) ? 'meta-key' : 'normal-key')
+    button(type='submit', style='float: right;') SUBMIT!
