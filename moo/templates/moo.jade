@@ -1,12 +1,12 @@
 doctype 5
 html(lang='en')
   head
-    title The Great Birthday Scavenger Hunt!
+    title The Great (yet very late) Birthday Scavenger Hunt!
     link(rel='stylesheet', href=url_for('static', filename='css/moo.css'))
     script(data-main='/static/js/main', src=url_for('static', filename='lib/require.js'))
   body
     div#sky
-      h1 The Great Birthday Scavenger Hunt!
+      h1 The Great (yet very late) Birthday Scavenger Hunt!
       table
         thead
           tr
@@ -18,11 +18,6 @@ html(lang='en')
             td Loading...
             td
             td
-    div#puzzle
-      h2 LEVEL 3 : THE COW JUMPED OVER THE MOON
-      p
-        | Hi, There’s this cow that tried to jump over me, and failed.... and he’s kinda just chilling in my curves (not that I actually have curves since its just an illusion created by the sun’s illumination)... but I digress. If you could come find me and get this cow off my back, that’d be greeeeaat. Outer space is kind of big... it’s pretty dark where I am, but I’m pretty sure I’m at moo.psyph.com. Please find me! Sincerely, the Moon.
-      div(style='margin: 0 100px')
-        iframe(src='https://athena.dialup.mit.edu/shell/', width='100%', height='200px')
-
-
+    #puzzle
+      h2.title
+      .content

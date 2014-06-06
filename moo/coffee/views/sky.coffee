@@ -14,7 +14,9 @@ define ['views/level-row'], (LevelRowView) ->
       # TODO: show loading message.
 
       @collection.fetch()
-        .done((e) -> console.log 'done',e)
-        .fail((e) -> console.log 'fail',e)
-        .then((e) -> console.log 'then',e)
+        .done (e) =>
+          console.log @collection
+          lastPuzzle = @collection.reject((puzzle) -> puzzle.get('solved')).pop()
+          lastPuzzle?.open()
+          return
       @

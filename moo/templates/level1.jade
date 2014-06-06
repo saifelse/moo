@@ -1,0 +1,33 @@
+div.content(style='width: 500px')
+  p Hi Annie,
+  p
+    | Happy super duper late birthday! I started making this scavenger hunt a little bit after your last birthday.
+    | A year later... I still haven't finished yet. Maybe I'll finish it by your next birthday :P
+  p
+    | When you beat each level, you'll get a
+    | a password, which you can enter at the top to unlock the next level. Good luck :) !
+  p Remember that origami vase I gave you? Since you don't have it anymore, we'll have to improvise!
+  div(style='margin-left: 20px')
+    p
+      strong "This is your last chance. After this, there is no turning back.
+    p
+      strong
+        | You open the 
+        a.js-blue(href='#', style='color: blue') blue flower
+        |  - the story ends, you wake up in your bed and believe whatever you want to believe.
+    p
+      strong
+        | You open the 
+        a.js-red(href='#', style='color: red') red flower
+        |  - you stay in Wonderland and I show you how deep the rabbit-hole goes." - Moorpheus
+    script
+      $('.js-red').click(function(e){
+        e.preventDefault();
+        alert('You chose correctly. The real origami rose had the URL to the scavenger hunt inside it. The password is HI. Onwards to Level 2!');
+      });
+      $('.js-blue').click(function(e){
+        e.preventDefault();
+        alert('Try again!');
+      });
+div.bg
+  img(src='/static/img/mootrix.png')

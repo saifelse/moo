@@ -14,13 +14,17 @@ define ['jade!templates/level-row'], (LevelRowTemplate) ->
           .prop('disabled', @model.get('solved'))
           .each (i) ->
             $(@).val(password[i])
-     
 
     events: ->
       'keydown input[type="text"]': 'handleBack'
       'input input[type="text"]': 'moveToNext'
       'click input[type="text"]': 'selectInput'
+      'click': 'openPuzzle'
       'submit form.submit-form': 'submitPassword'
+
+    openPuzzle: (e) ->
+      @model.trigger 'open', @model
+      return
 
     submitPassword: (e) ->
       password = $.makeArray(@$('input').map(-> $(@).val())).join('')
@@ -35,6 +39,7 @@ define ['jade!templates/level-row'], (LevelRowTemplate) ->
       return false
 
     selectInput: (e) ->
+      e.stopPropagation()
       $(e.target).select()
       return
 
@@ -44,7 +49,7 @@ define ['jade!templates/level-row'], (LevelRowTemplate) ->
         if val.length == 0
           prevInput = $(e.target).prev()
           prevInput.focus()
-          prevInput.select()     
+          prevInput.select()
           e.preventDefault()
       return
 

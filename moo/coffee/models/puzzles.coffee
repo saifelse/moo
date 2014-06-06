@@ -24,8 +24,11 @@ define [], () ->
           nextPuzzle = new PuzzleModel()
           nextPuzzle.set(nextPuzzle.parse(result.next_puzzle))
           @collection.add(nextPuzzle)
+          nextPuzzle.trigger 'open', nextPuzzle
         alert(result.responseJSON.message)
       )
+
+    open: -> @trigger 'open', @
 
 
   class PuzzleCollection extends Backbone.Collection

@@ -31,6 +31,8 @@ class Puzzle(db.Model):
       'solved': self.solved,
       'solve_url': url_for('solve_puzzle', puzzle_id=self.id)
     }
+    if self.unlocked:
+      d['html'] = render_template(self.template)
     if self.solved:
       d['password'] = self.password
     return d
@@ -38,7 +40,7 @@ class Puzzle(db.Model):
 def reset_db():
   db.create_all()
   puzzles = [
-    Puzzle(level=1, name='Hey diddle diddle,', password='RE', metakey=1, unlocked=True, template='level1.jade'),
+    Puzzle(level=1, name='Hey diddle diddle,', password='HI', metakey=1, unlocked=True, template='level1.jade'),
     Puzzle(level=2, name='The Cat and the Fiddle,', password='BAA', metakey=1, template='level2.jade'),
     Puzzle(level=3, name='The Cow jumped over the Moon.', password='BARK', metakey=2, template='level3.jade'),
     Puzzle(level=4, name='The Little Dog laughed to see such sport,', password='DELCO', metakey=1, template='level4.jade'),
@@ -67,7 +69,7 @@ def puzzle(puzzle_id):
     error = {'message': 'Unable to locate the requested puzzle.'}
     return Response(json.dumps(error), content_type='application/json'), 404
   else:
-    return Response(json.dumps(puzzle.to_dict()), content_type='application/json'), 200    
+    return Response(json.dumps(puzzle.to_dict()), content_type='application/json'), 200
 
 @app.route('/api/puzzles/<puzzle_id>/solve', methods=['POST'])
 def solve_puzzle(puzzle_id):
@@ -108,7 +110,7 @@ def solve_puzzle(puzzle_id):
     next_puzzle.unlocked = True
     db.session.add(next_puzzle)
     info['next_puzzle'] = next_puzzle.to_dict()
-    info['message'] = 'You\'ve unlocked the next puzzle!'  
+    info['message'] = 'You\'ve unlocked the next puzzle!'
   else:
     info['message'] = 'Welp, you\'ve finished all the puzzles. Hope you had fun :)'
   db.session.commit()
