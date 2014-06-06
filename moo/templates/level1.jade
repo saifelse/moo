@@ -20,14 +20,6 @@ div.content(style='width: 500px')
         | You open the 
         a.js-red(href='#', style='color: red') red flower
         |  - you stay in Wonderland and I show you how deep the rabbit-hole goes." - Moorpheus
-    script
-      $('.js-red').click(function(e){
-        e.preventDefault();
-        alert('You chose correctly. The real origami rose had the URL to the scavenger hunt inside it. The password is HI. Onwards to Level 2!');
-      });
-      $('.js-blue').click(function(e){
-        e.preventDefault();
-        alert('Try again!');
-      });
+
 div.bg
   img(src='/static/img/mootrix.png')

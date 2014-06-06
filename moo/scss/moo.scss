@@ -136,3 +136,77 @@ h1 {
     display: block;
   }
 }
+.pre {
+  font-family: monospace;
+  margin-left: 5px;
+  margin-right: 4px;
+}
+.hintable {
+  cursor: pointer;
+  padding: 5px;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    .hint {
+      color: white;
+      display: inline;
+      margin-left: 2px;
+      margin-right: 2px;
+    }
+  }
+  .hint {
+    display: none;
+  }
+}
+.chord {
+  display: inline-block;
+  width: 300px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 5px;
+  padding: 5px;
+  table {
+    margin: 5px auto;
+
+    tr:not(:first-child) td {
+      background-color: white;
+      outline: 1px solid black;
+    }
+    td {
+      height: 20px;
+      width: 60px;
+      text-align: center;
+      position: relative;
+      input {
+        display: none;
+      }
+      input:checked +label {
+        background-color: black;
+        border: 1px solid black;
+      }
+      input +label {
+        z-index: 100;
+        display: inline-block;
+        background-color: white;
+        border: 1px solid gray;
+        border-radius: 7px;
+        position: absolute;
+        left: 50%;
+        bottom: 0px;
+        margin-left: -7px;
+        margin-bottom: -7px;
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+  .note {
+    display: inline-block;
+    &:not(.none) {
+      background-color: white;
+    }
+    border-radius: 10px;
+    margin-top: 10px;
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -11,12 +11,9 @@ define ['views/level-row'], (LevelRowView) ->
       $tbody = @$('table tbody')
       $tbody.empty()
 
-      # TODO: show loading message.
-
       @collection.fetch()
         .done (e) =>
-          console.log @collection
-          lastPuzzle = @collection.reject((puzzle) -> puzzle.get('solved')).pop()
+          lastPuzzle = @collection.reject((puzzle) -> puzzle.get('solved')).pop() || @collection.models[@collection.length - 1]
           lastPuzzle?.open()
           return
       @

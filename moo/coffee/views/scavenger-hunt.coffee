@@ -3,9 +3,30 @@ define ['views/sky', 'models/puzzles'], (SkyView, puzzles) ->
 
     el: 'body'
 
+    events:
+      'change .chord input': 'handleChord'
+      'click .js-red': 'handleRed'
+      'click .js-blue': 'handleBlue'
+
     initialize: ->
       @puzzles = new puzzles.Collection()
       @skyView = new SkyView(el: @$('#sky'), collection: @puzzles)
+      return
+
+    handleChord: (e) ->
+      console.log
+      note = $(e.target).val()
+      $(e.target).closest('.chord').find('.note').text(note)
+      return
+
+    handleRed: (e) ->
+      e.preventDefault()
+      alert('You chose correctly. The real origami rose had the URL to the scavenger hunt inside it. The password is HI. Onwards to Level 2!')
+      return
+
+    handleBlue: (e) ->
+      e.preventDefault()
+      alert('Try again!')
       return
 
     registerListeners: ->

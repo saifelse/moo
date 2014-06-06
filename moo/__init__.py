@@ -40,11 +40,11 @@ class Puzzle(db.Model):
 def reset_db():
   db.create_all()
   puzzles = [
-    Puzzle(level=1, name='Hey diddle diddle,', password='HI', metakey=1, unlocked=True, template='level1.jade'),
+    Puzzle(level=1, name='Hey diddle diddle,', password='HI', metakey=0, unlocked=True, template='level1.jade'),
     Puzzle(level=2, name='The Cat and the Fiddle,', password='BAA', metakey=1, template='level2.jade'),
     Puzzle(level=3, name='The Cow jumped over the Moon.', password='BARK', metakey=2, template='level3.jade'),
-    Puzzle(level=4, name='The Little Dog laughed to see such sport,', password='DELCO', metakey=1, template='level4.jade'),
-    Puzzle(level=5, name='And the Dish ran away with the Spoon', password='GITHUB', metakey=0, template='level5.jade')
+    Puzzle(level=4, name='The Little Dog laughed to see such sport,', password='SPOON', metakey=1, template='level4.jade'),
+    Puzzle(level=5, name='And the Dish ran away with the Spoon', password='GITHUB', metakey=-1, template='level5.jade')
   ]
   for puzzle in puzzles:
     db.session.add(puzzle)
