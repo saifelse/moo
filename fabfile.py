@@ -65,6 +65,7 @@ def bootstrap():
 
   # create directory structure
   sudo('rm -rf /srv')
+  sudo('mkdir /srv')
   sudo("chown %s /srv -R" % env.user)
 
   # setup virtualenvironment
