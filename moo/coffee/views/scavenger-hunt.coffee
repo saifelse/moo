@@ -14,7 +14,6 @@ define ['views/sky', 'models/puzzles'], (SkyView, puzzles) ->
       return
 
     handleChord: (e) ->
-      console.log
       note = $(e.target).val()
       $(e.target).closest('.chord').find('.note').text(note)
       return

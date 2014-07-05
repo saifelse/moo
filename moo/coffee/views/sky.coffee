@@ -4,7 +4,6 @@ define ['views/level-row'], (LevelRowView) ->
       @listenTo(@collection, 'add', @addLevelRow)
 
     addLevelRow: (model, collection, options) ->
-      console.log 'ADDING LEVEL ROW'
       @$('table tbody').append(new LevelRowView(model: model).render().el)
 
     render: ->
