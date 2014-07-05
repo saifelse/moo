@@ -1,4 +1,3 @@
-# COPY ALL CONFIG CHANGES TO main-summary.coffee AND main-widget.coffee
 require.config
   urlArgs: "bust=#{(new Date()).getTime()}"
   paths:
@@ -17,7 +16,7 @@ require.config
     bootstrap:
       deps: ['jquery']
     router:
-      deps: ['backbone', 'bootstrap',]
+      deps: ['backbone', 'bootstrap']
 
 require ['router'], (Router) ->
   new Router()
